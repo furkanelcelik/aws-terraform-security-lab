@@ -59,18 +59,18 @@ resource "aws_security_group" "private_http" {
   vpc_id      = var.vpc_id
 
   ingress {
-    description              = "HTTP on 8080 from the public SG"
-    from_port                = 8080
-    to_port                  = 8080
-    protocol                 = "tcp"
+    description     = "HTTP on 8080 from the public SG"
+    from_port       = 8080
+    to_port         = 8080
+    protocol        = "tcp"
     security_groups = [aws_security_group.public_http.id]
   }
 
   ingress {
-    description              = "ICMP from the public SG"
-    from_port                = -1
-    to_port                  = -1
-    protocol                 = "icmp"
+    description     = "ICMP from the public SG"
+    from_port       = -1
+    to_port         = -1
+    protocol        = "icmp"
     security_groups = [aws_security_group.public_http.id]
   }
 
